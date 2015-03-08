@@ -14,9 +14,25 @@
 \newdimen\cardwidth
 \cardwidth=91mm
 
+\definecolor{myblue}{rgb}{0.15, 0.28, 0.54}
+
+\font\heading="Helvetica Bold" at 18pt
+\font\sub="Helvetica" at 10pt
+\font\details="Cambria" at 10pt
+
 \tikzpicture
 
 \useasboundingbox (0,0) rectangle (\cardwidth,\cardheight);
+
+\fill [fill=myblue] (-\bleedlength, 0.60*\cardheight) rectangle
+      (\cardwidth+\bleedlength, \cardheight+\bleedlength);
+
+\node [right, text=white, font=\heading] at (10mm,45mm) {Allan Espinosa};
+\node [right, text=white, font=\sub] at (10mm,37mm) {Big Data, DevOps, Ruby};
+
+\node [right, font=\details] at (10mm,22mm) {allan.espinosa@outlook.com};
+\node [right, font=\details] at (10mm,17mm) {http://aespinosa.github.io};
+\node [right, font=\details] at (10mm,12mm) {@AllanEspinosa};
 
 % Crop Marks
 
