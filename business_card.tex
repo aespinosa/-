@@ -1,20 +1,9 @@
-\pdfpageheight=297mm
-\pdfpagewidth=210mm
-\hoffset=-1in
-\advance\hoffset by 12mm
-\voffset=-1in
-\advance\voffset by 7mm
-\parindent=0mm
-
-\hsize=186mm
-\vsize=283mm
-
 \nopagenumbers
 
 \input tikz
 
 \newdimen\bleedlength
-\bleedlength=1mm
+\bleedlength=3mm
 
 \newdimen\marklength
 \marklength=10mm
@@ -31,13 +20,12 @@
 \font\sub="Helvetica" at 10pt
 \font\details="Cambria" at 10pt
 
-\def\meishi {
 \tikzpicture
 
 \useasboundingbox (0,0) rectangle (\cardwidth,\cardheight);
 
-\fill [fill=myblue] (-4*\bleedlength, 0.60*\cardheight) rectangle
-      (\cardwidth+4*\bleedlength, \cardheight+\bleedlength);
+\fill [fill=myblue] (-\bleedlength, 0.60*\cardheight) rectangle
+      (\cardwidth+\bleedlength, \cardheight+\bleedlength);
 
 \node [right, text=white, font=\heading] at (10mm,45mm) {Allan Espinosa};
 \node [right, text=white, font=\sub] at (10mm,37mm) {Big Data, DevOps, Ruby};
@@ -46,17 +34,47 @@
 \node [right, font=\details] at (10mm,17mm) {http://aespinosa.github.io};
 \node [right, font=\details] at (10mm,12mm) {@AllanEspinosa};
 
-\endtikzpicture
-}
+% Crop Marks
 
-\meishi \hfill \meishi
-\vfill
-\meishi \hfill \meishi
-\vfill
-\meishi \hfill \meishi
-\vfill
-\meishi \hfill \meishi
-\vfill
-\meishi \hfill \meishi
+\draw(0,-\bleedlength) -- ++(0,-\marklength);
+\draw(0,-\bleedlength) -- ++(-\marklength,0);
+\draw(-\bleedlength,0) -- ++(-\marklength,0);
+\draw(-\bleedlength,0) -- ++(0,-\marklength);
+
+\draw(0,\cardheight+\bleedlength) -- ++(0, \marklength);
+\draw(0,\cardheight+\bleedlength) -- ++(-\marklength, 0);
+\draw(-\bleedlength,\cardheight) -- ++(0, \marklength);
+\draw(-\bleedlength,\cardheight) -- ++(-\marklength, 0);
+
+\draw(\cardwidth,-\bleedlength) -- ++(0,-\marklength);
+\draw(\cardwidth,-\bleedlength) -- ++(\marklength, 0);
+\draw(\cardwidth+\bleedlength, 0) -- ++(0,-\marklength);
+\draw(\cardwidth+\bleedlength, 0) -- ++(\marklength,0);
+
+
+\draw(\cardwidth,\cardheight+\bleedlength) -- ++(0,\marklength);
+\draw(\cardwidth,\cardheight+\bleedlength) -- ++(\marklength, 0);
+\draw(\cardwidth+\bleedlength,\cardheight) -- ++(0,\marklength);
+\draw(\cardwidth+\bleedlength,\cardheight) -- ++(\marklength,0);
+
+% Center marks
+
+\draw(0.5*\cardwidth-\marklength, \cardheight+2*\bleedlength) --
+     ++(2*\marklength, 0);
+\draw(0.5*\cardwidth, \cardheight+\bleedlength) -- ++(0,\marklength);
+
+\draw(0.5*\cardwidth-\marklength, -2*\bleedlength) --
+     ++(2*\marklength, 0);
+\draw(0.5*\cardwidth, -\bleedlength) -- ++(0,-\marklength);
+
+\draw(-2*\bleedlength, 0.5*\cardheight-\marklength) --
+     ++(0, 2*\marklength);
+\draw(-\bleedlength, 0.5*\cardheight) -- ++(-\marklength, 0);
+
+\draw(\cardwidth+2*\bleedlength, 0.5*\cardheight-\marklength) --
+     ++(0, 2*\marklength);
+\draw(\cardwidth+\bleedlength, 0.5*\cardheight) -- ++(\marklength, 0);
+
+\endtikzpicture
 
 \bye
